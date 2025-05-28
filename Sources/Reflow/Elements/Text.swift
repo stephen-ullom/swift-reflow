@@ -1,13 +1,13 @@
 import Foundation
 
-public struct Text {
+public struct Text: Node {
   public let text: String
 
-  public init(text: String) {
+  public init(_ text: String) {
     self.text = text
   }
 
   public func render() -> String {
-    return "<span>\(text)</span>"
+    return text
   }
 }
