@@ -4,21 +4,21 @@
 import PackageDescription
 
 let package = Package(
-  name: "swift-reflow",
+  name: "Reflow",
   products: [
     // Products define the executables and libraries a package produces, making them visible to other packages.
     .library(
-      name: "swift-reflow",
-      targets: ["swift-reflow"])
+      name: "Reflow",
+      targets: ["Reflow"])
   ],
   targets: [
     // Targets are the basic building blocks of a package, defining a module or a test suite.
     // Targets can depend on other targets in this package and products from dependencies.
     .target(
-      name: "swift-reflow"),
+      name: "Reflow"),
     .testTarget(
-      name: "swift-reflowTests",
-      dependencies: ["swift-reflow"]
+      name: "ReflowTests",
+      dependencies: ["Reflow"]
     ),
   ]
 )
