@@ -1,14 +1,18 @@
 public struct Container: Node {
   let child: Node
   let styles: [String: String]
+  let attributes: [String: String]
 
-  public init(styles: [String: String] = [:], child: Node) {
+  public init(attributes: [String: String] = [:], styles: [String: String] = [:], child: Node) {
     self.child = child
     self.styles = styles
+    self.attributes = attributes
   }
 
   public func render() -> String {
     return createElement(
-      "div", attributes: ["style": createStyles(styles)], children: [child.render()])
+      "div",
+      attributes: attributes.merging(["style": createStyles(styles)]) { _, new in new },
+      children: [child.render()])
   }
 }
