@@ -1,11 +1,8 @@
 public func createDocument(children: [Node], attributes: [String: String] = [:]) -> String {
-  return createElement(
-    "html",
+  let body = createElement(
+    "body",
     attributes: attributes,
-    children: [
-      createElement(
-        "body",
-        children: children.map { $0.render() })
-    ])
+    children: children.map { $0.render() })
 
+  return createElement("html", children: [body])
 }
