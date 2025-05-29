@@ -1,3 +1,3 @@
-protocol Node {
+public protocol Node {
   func render() -> String
 }

@@ -1,0 +1,14 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "swift",
+      "args": ["package", "resolve"],
+      "env": {},
+      "cwd": "/Users/Stephen/Documents/GitHub/swift-reflow",
+      "problemMatcher": [],
+      "label": "swift: Resolve Package Dependencies",
+      "detail": "(swift-reflow) swift package resolve"
+    }
+  ]
+}
