@@ -1,9 +1,22 @@
 import Foundation
 
-struct Row: Node {
-  let children: [String]
+public struct Row: Node {
+  let children: [Node]
+  let styles: [String: String]
 
-  func render() -> String {
-    return createElement("div", attributes: ["style": "display: flex;"], children: children)
+  public init(styles: [String: String] = [:], children: [Node]) {
+    self.children = children
+    self.styles = styles
+  }
+
+  public func render() -> String {
+    let baseStyles = ["display": "flex"]
+    let combinedStyles = baseStyles.merging(styles) { _, new in new }
+
+    return createElement(
+      "div",
+      attributes: ["style": createStyles(combinedStyles)],
+      children: children.map { $0.render() }
+    )
   }
 }

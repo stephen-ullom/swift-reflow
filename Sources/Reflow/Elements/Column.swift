@@ -2,23 +2,21 @@ import Foundation
 
 public struct Column: Node {
   let children: [Node]
-  let alignment: Alignment?
+  let styles: [String: String]
 
-  public init(alignment: Alignment? = nil, children: [Node]) {
+  public init(styles: [String: String] = [:], children: [Node]) {
     self.children = children
-    self.alignment = alignment
+    self.styles = styles
   }
 
   public func render() -> String {
-    var styles = ["display": "flex", "flex-direction": "column"]
-
-    if let alignment = alignment {
-      styles["align-items"] = alignment.rawValue
-    }
+    let baseStyles = ["display": "flex", "flex-direction": "column"]
+    let combinedStyles = baseStyles.merging(styles) { _, new in new }
 
     return createElement(
       "div",
-      attributes: ["style": createStyles(styles)],
-      children: children.map { $0.render() })
+      attributes: ["style": createStyles(combinedStyles)],
+      children: children.map { $0.render() }
+    )
   }
 }
