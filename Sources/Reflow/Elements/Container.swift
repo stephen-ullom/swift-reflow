@@ -1,5 +1,3 @@
-import Foundation
-
 public struct Container: Node {
   let child: Node
   let styles: [String: String]

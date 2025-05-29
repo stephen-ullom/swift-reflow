@@ -1,5 +1,3 @@
-import Foundation
-
 public struct Text: Node {
   public let text: String
   public let styles: [String: String]
@@ -10,6 +8,8 @@ public struct Text: Node {
   }
 
   public func render() -> String {
-    return createElement("span", attributes: ["style": createStyles(styles)], children: [text])
+    let attributes = styles.isEmpty ? [:] : ["style": createStyles(styles)]
+
+    return createElement("span", attributes: attributes, children: [text])
   }
 }
