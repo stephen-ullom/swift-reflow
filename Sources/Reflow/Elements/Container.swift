@@ -12,7 +12,7 @@ public struct Container: Node {
   public func render() -> String {
     return createElement(
       "div",
-      attributes: attributes.merging(["style": createStyles(styles)]) { _, new in new },
+      attributes: attributes.merging(["style": createStyles(styles)]) { $1 },
       children: [child.render()])
   }
 }

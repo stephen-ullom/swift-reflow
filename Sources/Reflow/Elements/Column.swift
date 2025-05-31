@@ -9,7 +9,7 @@ public struct Column: Node {
 
   public func render() -> String {
     let baseStyles = ["display": "flex", "flex-direction": "column"]
-    let combinedStyles = baseStyles.merging(styles) { _, new in new }
+    let combinedStyles = baseStyles.merging(styles) { $1 }
 
     return createElement(
       "div",
