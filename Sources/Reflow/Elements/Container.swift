@@ -1,12 +1,16 @@
 public struct Container: Node {
-  let child: Node
-  let styles: [String: String]
   let attributes: [String: String]
+  let styles: [String: String]
+  let child: Node
 
-  public init(attributes: [String: String] = [:], styles: [String: String] = [:], child: Node) {
-    self.child = child
-    self.styles = styles
+  public init(
+    attributes: [String: String] = [:],
+    styles: [String: String] = [:],
+    child: Node
+  ) {
     self.attributes = attributes
+    self.styles = styles
+    self.child = child
   }
 
   public func render() -> String {

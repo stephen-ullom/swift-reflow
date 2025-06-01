@@ -1,10 +1,16 @@
 public struct Row: Node {
-  let children: [Node]
+  let attributes: [String: String]
   let styles: [String: String]
+  let children: [Node]
 
-  public init(styles: [String: String] = [:], children: [Node]) {
-    self.children = children
+  public init(
+    attributes: [String: String] = [:],
+    styles: [String: String] = [:],
+    children: [Node]
+  ) {
+    self.attributes = [:]
     self.styles = styles
+    self.children = children
   }
 
   public func render() -> String {
@@ -13,7 +19,7 @@ public struct Row: Node {
 
     return createElement(
       "div",
-      attributes: ["style": createStyles(combinedStyles)],
+      attributes: attributes.merging(["style": createStyles(combinedStyles)]) { $1 },
       children: children.map { $0.render() }
     )
   }
