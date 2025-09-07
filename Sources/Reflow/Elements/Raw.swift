@@ -1,5 +1,5 @@
 public struct Raw: Node {
-  let html: String
+  public let html: String
 
   public init(_ html: String) {
     self.html = html

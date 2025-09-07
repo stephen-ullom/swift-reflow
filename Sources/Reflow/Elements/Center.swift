@@ -1,5 +1,5 @@
 public struct Center: Node {
-  let child: Node
+  public let child: Node
 
   public init(child: Node) {
     self.child = child

@@ -1,6 +1,6 @@
 public struct Space: Node {
-  let width: String?
-  let height: String?
+  public let width: String?
+  public let height: String?
 
   public init(width: String? = nil, height: String? = nil) {
     self.width = width

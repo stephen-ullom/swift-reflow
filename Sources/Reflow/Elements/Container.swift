@@ -1,7 +1,7 @@
 public struct Container: Node {
-  let attributes: [String: String]
-  let styles: [String: String]
-  let child: Node
+  public let attributes: [String: String]
+  public let styles: [String: String]
+  public let child: Node
 
   public init(
     attributes: [String: String] = [:],

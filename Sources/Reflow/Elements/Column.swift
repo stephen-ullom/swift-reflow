@@ -1,7 +1,7 @@
 public struct Column: Node {
-  let attributes: [String: String]
-  let children: [Node]
-  let styles: [String: String]
+  public let attributes: [String: String]
+  public let children: [Node]
+  public let styles: [String: String]
 
   public init(
     attributes: [String: String] = [:],
